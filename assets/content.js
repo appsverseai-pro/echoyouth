@@ -33,11 +33,12 @@ window.SITE_CONTENT = {
     { name: "Alumni-Led Chapters", desc: "Past participants return as near-peer leaders, running the next cohort in their own city." }
   ],
   founders: [
-    { name: "Founder Name", role: "Co-Founder & Executive Director", bio: "Placeholder bio — a sentence on background and why they started EchoYouth.", initials: "FN" },
-    { name: "Founder Name", role: "Co-Founder & Programs Lead", bio: "Placeholder bio — a sentence on background and why they started EchoYouth.", initials: "FN" },
-    { name: "Founder Name", role: "Co-Founder & Partnerships", bio: "Placeholder bio — a sentence on background and why they started EchoYouth.", initials: "FN" },
-    { name: "Founder Name", role: "Co-Founder & Community", bio: "Placeholder bio — a sentence on background and why they started EchoYouth.", initials: "FN" },
-    { name: "Founder Name", role: "Co-Founder & Operations", bio: "Placeholder bio — a sentence on background and why they started EchoYouth.", initials: "FN" }
+    { name: "Kayla Chan", role: "9th Grade · University High School of San Francisco", bio: "Founded EchoYouth to help students turn their curiosity about business and technology into real projects and community.", initials: "KC" },
+    { name: "Aiden Shan", role: "9th Grade · Amador Valley High School", bio: "Wanted to build a space where young people learn entrepreneurship by doing, not just reading about it.", initials: "AS" },
+    { name: "Oliver Han", role: "10th Grade · Homestead High School", bio: "Co-founded EchoYouth to connect students with founders, investors, and hands-on opportunities early.", initials: "OH" },
+    { name: "Melody Chan", role: "7th Grade · William H. Crocker Middle School", bio: "Believes it is never too early to start building, and wants more middle schoolers to get involved.", initials: "MC" },
+    { name: "Joelle Chow", role: "9th Grade · Miramonte High School", bio: "Passionate about giving students a platform to share their ideas and grow as leaders.", initials: "JC" },
+    { name: "Ariel YoYo Chen", role: "9th Grade · San Mateo High School", bio: "Joined to help peers explore investing, innovation, and different career paths from an early age.", initials: "AC" }
   ],
   events: {
     // Types of events EchoYouth runs (placeholders). Hover a chip on the
