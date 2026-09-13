@@ -196,8 +196,13 @@ body{ padding-top:64px; }
   background:var(--bg-raised);
   border:1px solid var(--line);
   display:flex; align-items:center; justify-content:center;
-  font-size:15px; letter-spacing:0.04em; color:var(--text-faint);
+  color:var(--text-faint);
   margin:0 auto 22px;
+  overflow:hidden;
+}
+.avatar-icon{
+  width:56px; height:56px;
+  color:var(--text-faint);
 }
 .founder h3{ font-size:17px; }
 .founder .role{ font-size:13px; color:var(--accent); margin-top:6px; }

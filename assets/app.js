@@ -29,9 +29,14 @@ const Render = {
   },
   founders(el) {
     if (!el) return;
+    const avatarIcon = `
+      <svg class="avatar-icon" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+        <circle cx="12" cy="8.5" r="3.75" fill="currentColor"/>
+        <path d="M4.5 20c0-4.14 3.36-7 7.5-7s7.5 2.86 7.5 7" fill="currentColor"/>
+      </svg>`;
     el.innerHTML = SITE_CONTENT.founders.map(f => `
       <div class="founder">
-        <div class="avatar">${f.initials}</div>
+        <div class="avatar" role="img" aria-label="${f.name}">${avatarIcon}</div>
         <h3>${f.name}</h3>
         <div class="role">${f.role}</div>
         <p>${f.bio}</p>
