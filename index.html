@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>EchoYouth — An Echo of Impact</title>
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+
+<nav class="nav">
+  <div class="wrap">
+    <a class="brand" href="index.html">EchoYouth</a>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="index.html#about">About</a></li>
+      <li><a href="founders.html">Founders</a></li>
+      <li><a href="events.html">Events</a></li>
+      <li><a href="impact.html">Impact</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+    <button class="nav-toggle" id="navToggle" aria-label="Toggle menu"><span></span><span></span><span></span></button>
+  </div>
+</nav>
+
+<header class="hero" id="hero">
+  <div class="wrap hero-inner reveal">
+    <span class="eyebrow">EchoYouth</span>
+    <h1 class="hl hl-center" data-hero-headline>An echo of impact.</h1>
+    <p class="lede lede-center" data-hero-sub></p>
+    <p class="lede lede-center" data-hero-desc style="margin-top:8px; color:var(--text-faint); font-size:15px;"></p>
+    <div class="btn-row" style="justify-content:center; margin-top:44px;">
+      <a class="btn btn-solid" href="contact.html">Get involved</a>
+      <a class="btn" href="#programs">Explore programs</a>
+    </div>
+  </div>
+</header>
+
+<section id="about">
+  <div class="wrap">
+    <span class="eyebrow">Mission &amp; Vision</span>
+    <h2 class="hl" style="font-size:clamp(28px,3.6vw,44px); max-width:760px;">Every builder we grow becomes the reason the next one gets to start sooner.</h2>
+    <div class="grid-2" style="margin-top:56px;">
+      <div>
+        <h3 class="item-title">Mission</h3>
+        <p>To give young builders the exposure, community, and opportunities to turn curiosity into action and ideas into impact.</p>
+      </div>
+      <div>
+        <h3 class="item-title">Vision</h3>
+        <p>To create an echo of impact — where one generation of young builders inspires, empowers, and creates opportunities for the next.</p>
+      </div>
+    </div>
+    <div class="grid-3" id="pillars" style="margin-top:80px;"></div>
+  </div>
+</section>
+
+<section id="programs" class="section-tight">
+  <div class="wrap">
+    <span class="eyebrow">Programs</span>
+    <h2 class="hl" style="font-size:clamp(28px,3.6vw,44px);">What we build together</h2>
+    <div class="grid-2" id="programs-list" style="margin-top:56px; row-gap:56px;"></div>
+  </div>
+</section>
+
+<section class="section-tight" style="text-align:center;">
+  <div class="wrap">
+    <h2 class="hl hl-center" style="font-size:clamp(26px,3.2vw,40px);">Meet the people who started it.</h2>
+    <div class="btn-row" style="justify-content:center; margin-top:32px;">
+      <a class="btn btn-solid" href="founders.html">Meet the founders</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="footer-grid">
+      <div>
+        <div class="brand" style="margin-bottom:12px;">EchoYouth</div>
+        <p style="max-width:260px;">Building the next generation of builders.</p>
+      </div>
+      <div class="footer-links">
+        <a href="index.html#about">About</a>
+        <a href="founders.html">Founders</a>
+        <a href="events.html">Events</a>
+        <a href="impact.html">Impact</a>
+        <a href="contact.html">Contact</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 EchoYouth</span>
+      <span data-contact-email></span>
+    </div>
+  </div>
+</footer>
+
+<script src="assets/content.js"></script>
+<script src="assets/app.js"></script>
+<script>
+  Render.hero(document.getElementById('hero'));
+  Render.pillars(document.getElementById('pillars'));
+  Render.programs(document.getElementById('programs-list'));
+  Render.contactEmail(document.querySelector('[data-contact-email]'));
+</script>
+</body>
+</html>

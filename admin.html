@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Admin — EchoYouth</title>
+<link rel="stylesheet" href="assets/style.css">
+<style>
+  body{ padding-top:64px; }
+  .admin-wrap{ max-width:820px; margin:0 auto; padding:56px 24px 140px; }
+  .admin-note{
+    border:1px solid var(--line); background:var(--bg-raised);
+    padding:20px 22px; font-size:13.5px; color:var(--text-dim); margin-bottom:56px;
+  }
+  .admin-note strong{ color:var(--text); }
+  fieldset{ border:none; padding:0; margin:0 0 64px; }
+  legend{ font-size:13px; text-transform:uppercase; letter-spacing:0.06em; color:var(--text-faint); margin-bottom:24px; padding:0; }
+  label{ display:block; font-size:12.5px; color:var(--text-faint); margin-bottom:6px; }
+  input[type=text], textarea{
+    width:100%;
+    background:var(--bg-raised);
+    border:1px solid var(--line);
+    color:var(--text);
+    padding:10px 12px;
+    font-size:14px;
+    font-family:inherit;
+    margin-bottom:16px;
+    border-radius:4px;
+  }
+  textarea{ resize:vertical; min-height:56px; }
+  .field-row{ display:grid; grid-template-columns:1fr 1fr; gap:16px; }
+  @media(max-width:600px){ .field-row{ grid-template-columns:1fr; } }
+  .repeat-item{ border:1px solid var(--line); padding:20px; margin-bottom:16px; position:relative; border-radius:4px; }
+  .repeat-remove{
+    position:absolute; top:14px; right:14px;
+    font-size:12px; color:var(--text-faint); background:none; border:none; cursor:pointer;
+  }
+  .repeat-remove:hover{ color:#ff5a5a; }
+  .add-btn{
+    font-size:13px; color:var(--accent); background:none; border:1px dashed var(--line);
+    padding:10px 16px; cursor:pointer; width:100%; border-radius:4px;
+  }
+  .add-btn:hover{ border-color:var(--accent); }
+  .bar{
+    position:fixed; bottom:0; left:0; right:0;
+    background:rgba(0,0,0,0.9); backdrop-filter:blur(12px);
+    border-top:1px solid var(--line);
+    padding:16px 24px; display:flex; justify-content:center; gap:14px; flex-wrap:wrap; z-index:50;
+  }
+  #toast{
+    position:fixed; top:78px; left:50%; transform:translateX(-50%);
+    background:var(--text); color:#000; font-size:13.5px; font-weight:500;
+    padding:10px 18px; border-radius:100px; opacity:0; pointer-events:none;
+    transition:opacity .25s ease; z-index:60;
+  }
+  #toast.show{ opacity:1; }
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <div class="wrap">
+    <a class="brand" href="index.html">EchoYouth</a>
+    <span style="font-size:13px; color:var(--text-faint);">Admin console</span>
+  </div>
+</nav>
+
+<div id="toast"></div>
+
+<div class="admin-wrap">
+  <span class="eyebrow" style="margin-bottom:8px;">Admin</span>
+  <h1 class="hl" style="font-size:clamp(28px,4vw,40px); margin-bottom:32px;">Edit site content</h1>
+
+  <div class="admin-note">
+    <strong>How this works:</strong> Edits here save to this browser only (as a draft) so you can preview changes across the site instantly. To make changes permanent and visible to everyone, click <strong>Download content.js</strong> at the bottom and replace <code>/assets/content.js</code> in your codebase, then redeploy. See the note at the bottom of this page for the fully standardized workflow.
+  </div>
+
+  <form id="admin-form">
+    <fieldset>
+      <legend>Hero</legend>
+      <label>Headline</label>
+      <input type="text" data-path="hero.headline">
+      <label>Subheadline</label>
+      <input type="text" data-path="hero.sub">
+      <label>Description</label>
+      <textarea data-path="hero.desc"></textarea>
+    </fieldset>
+
+    <fieldset>
+      <legend>About — Mission &amp; Vision</legend>
+      <label>Mission</label>
+      <textarea data-path="about.mission"></textarea>
+      <label>Vision</label>
+      <textarea data-path="about.vision"></textarea>
+    </fieldset>
+
+    <fieldset>
+      <legend>About — Pillars</legend>
+      <div id="pillars-repeat"></div>
+      <button type="button" class="add-btn" data-add="about.pillars" data-template="pillar">+ Add pillar</button>
+    </fieldset>
+
+    <fieldset>
+      <legend>Programs</legend>
+      <div id="programs-repeat"></div>
+      <button type="button" class="add-btn" data-add="programs" data-template="program">+ Add program</button>
+    </fieldset>
+
+    <fieldset>
+      <legend>Founders</legend>
+      <div id="founders-repeat"></div>
+      <button type="button" class="add-btn" data-add="founders" data-template="founder">+ Add founder</button>
+    </fieldset>
+
+    <fieldset>
+      <legend>Events — Upcoming</legend>
+      <div id="upcoming-repeat"></div>
+      <button type="button" class="add-btn" data-add="events.upcoming" data-template="upcoming">+ Add upcoming event</button>
+    </fieldset>
+
+    <fieldset>
+      <legend>Events — Past</legend>
+      <div id="past-repeat"></div>
+      <button type="button" class="add-btn" data-add="events.past" data-template="past">+ Add past event</button>
+    </fieldset>
+
+    <fieldset>
+      <legend>Impact — Stats</legend>
+      <div id="stats-repeat"></div>
+      <button type="button" class="add-btn" data-add="impact.stats" data-template="stat">+ Add stat</button>
+    </fieldset>
+
+    <fieldset>
+      <legend>Impact — Quote</legend>
+      <label>Quote</label>
+      <textarea data-path="impact.quote"></textarea>
+      <label>Attribution</label>
+      <input type="text" data-path="impact.attrib">
+    </fieldset>
+
+    <fieldset>
+      <legend>Contact</legend>
+      <label>Email</label>
+      <input type="text" data-path="contact.email">
+      <label>Location</label>
+      <input type="text" data-path="contact.location">
+    </fieldset>
+  </form>
+
+  <div class="admin-note" style="margin-top:8px;">
+    <strong>The standardized way to ship changes going forward:</strong> keep this file-based content as the source of truth in git, connect the repo to Vercel or Netlify so every push auto-deploys, and — if non-engineers need to edit without touching code — add a git-backed headless CMS (e.g. Decap CMS) pointed at this same content file. That gives you real auth, an editing history, and zero servers to maintain. Full steps are in the message where this file was shared.
+  </div>
+</div>
+
+<div class="bar">
+  <button class="btn" type="button" id="btn-reset">Reset to last saved</button>
+  <button class="btn btn-solid" type="button" id="btn-save">Save draft (preview instantly)</button>
+  <button class="btn btn-accent" type="button" id="btn-export">Download content.js</button>
+</div>
+
+<script src="assets/content.js"></script>
+<script>
+  // Deep clone current content as working state
+  let state = JSON.parse(JSON.stringify(SITE_CONTENT));
+
+  const templates = {
+    pillar: () => ({ title: "New pillar", body: "" }),
+    program: () => ({ name: "New program", desc: "" }),
+    founder: () => ({ name: "Founder Name", role: "Role", bio: "", initials: "FN" }),
+    upcoming: () => ({ date: "", location: "", title: "New event", desc: "" }),
+    past: () => ({ date: "", title: "New event", desc: "" }),
+    stat: () => ({ number: "0", label: "New stat" })
+  };
+
+  function getPath(obj, path) {
+    return path.split('.').reduce((o, k) => (o ? o[k] : undefined), obj);
+  }
+  function setPath(obj, path, value) {
+    const keys = path.split('.');
+    const last = keys.pop();
+    const target = keys.reduce((o, k) => o[k], obj);
+    target[last] = value;
+  }
+
+  function fieldRow(fields, arrPath, index) {
+    return fields.map(f => `
+      <label>${f.label}</label>
+      ${f.type === 'textarea'
+        ? `<textarea data-arr="${arrPath}" data-idx="${index}" data-key="${f.key}">${f.get()}</textarea>`
+        : `<input type="text" data-arr="${arrPath}" data-idx="${index}" data-key="${f.key}" value="${f.get().replace(/"/g,'&quot;')}">`}
+    `).join('');
+  }
+
+  function renderRepeat(containerId, arrPath, fieldsFn) {
+    const container = document.getElementById(containerId);
+    const arr = getPath(state, arrPath);
+    container.innerHTML = arr.map((item, i) => `
+      <div class="repeat-item">
+        <button type="button" class="repeat-remove" data-remove="${arrPath}" data-idx="${i}">Remove</button>
+        ${fieldRow(fieldsFn(item), arrPath, i)}
+      </div>
+    `).join('');
+  }
+
+  function renderAllRepeats() {
+    renderRepeat('pillars-repeat', 'about.pillars', item => [
+      { key: 'title', label: 'Title', get: () => item.title, type: 'text' },
+      { key: 'body', label: 'Body', get: () => item.body, type: 'textarea' }
+    ]);
+    renderRepeat('programs-repeat', 'programs', item => [
+      { key: 'name', label: 'Name', get: () => item.name, type: 'text' },
+      { key: 'desc', label: 'Description', get: () => item.desc, type: 'textarea' }
+    ]);
+    renderRepeat('founders-repeat', 'founders', item => [
+      { key: 'name', label: 'Name', get: () => item.name, type: 'text' },
+      { key: 'role', label: 'Role', get: () => item.role, type: 'text' },
+      { key: 'initials', label: 'Avatar initials', get: () => item.initials, type: 'text' },
+      { key: 'bio', label: 'Bio', get: () => item.bio, type: 'textarea' }
+    ]);
+    renderRepeat('upcoming-repeat', 'events.upcoming', item => [
+      { key: 'title', label: 'Title', get: () => item.title, type: 'text' },
+      { key: 'date', label: 'Date', get: () => item.date, type: 'text' },
+      { key: 'location', label: 'Location', get: () => item.location, type: 'text' },
+      { key: 'desc', label: 'Description', get: () => item.desc, type: 'textarea' }
+    ]);
+    renderRepeat('past-repeat', 'events.past', item => [
+      { key: 'title', label: 'Title', get: () => item.title, type: 'text' },
+      { key: 'date', label: 'Date', get: () => item.date, type: 'text' },
+      { key: 'desc', label: 'Description', get: () => item.desc, type: 'textarea' }
+    ]);
+    renderRepeat('stats-repeat', 'impact.stats', item => [
+      { key: 'number', label: 'Number', get: () => item.number, type: 'text' },
+      { key: 'label', label: 'Label', get: () => item.label, type: 'text' }
+    ]);
+    bindRepeatInputs();
+  }
+
+  function bindRepeatInputs() {
+    document.querySelectorAll('[data-arr]').forEach(el => {
+      el.addEventListener('input', () => {
+        const arr = getPath(state, el.dataset.arr);
+        arr[el.dataset.idx][el.dataset.key] = el.value;
+      });
+    });
+    document.querySelectorAll('[data-remove]').forEach(el => {
+      el.addEventListener('click', () => {
+        const arr = getPath(state, el.dataset.remove);
+        arr.splice(el.dataset.idx, 1);
+        renderAllRepeats();
+      });
+    });
+  }
+
+  document.querySelectorAll('[data-add]').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const arr = getPath(state, btn.dataset.add);
+      arr.push(templates[btn.dataset.template]());
+      renderAllRepeats();
+    });
+  });
+
+  function bindSimpleFields() {
+    document.querySelectorAll('[data-path]').forEach(el => {
+      el.value = getPath(state, el.dataset.path) || '';
+      el.addEventListener('input', () => setPath(state, el.dataset.path, el.value));
+    });
+  }
+
+  function toast(msg) {
+    const t = document.getElementById('toast');
+    t.textContent = msg;
+    t.classList.add('show');
+    setTimeout(() => t.classList.remove('show'), 1800);
+  }
+
+  document.getElementById('btn-save').addEventListener('click', () => {
+    localStorage.setItem('echoyouth_content_draft', JSON.stringify(state));
+    toast('Draft saved — refresh any page to preview');
+  });
+
+  document.getElementById('btn-reset').addEventListener('click', () => {
+    localStorage.removeItem('echoyouth_content_draft');
+    location.reload();
+  });
+
+  document.getElementById('btn-export').addEventListener('click', () => {
+    const fileText = `window.SITE_CONTENT = ${JSON.stringify(state, null, 2)};\n`;
+    const blob = new Blob([fileText], { type: 'text/javascript' });
+    const a = document.createElement('a');
+    a.href = URL.createObjectURL(blob);
+    a.download = 'content.js';
+    a.click();
+    toast('content.js downloaded');
+  });
+
+  bindSimpleFields();
+  renderAllRepeats();
+</script>
+</body>
+</html>
