@@ -56,7 +56,7 @@ window.SITE_CONTENT = {
     ],
     upcoming: [
       { date: "Sun, Sep 13, 2026 · 9:00–10:00am PDT", location: "Zoom (link TBD)", title: "Virtual Professional Interview Series: Vikram Venkat, Principal of Cota Capital", desc: "A live conversation with Vikram Venkat, Principal at Cota Capital, on venture capital and career paths.", link: "https://luma.com/suxiq8hk" },
-      { date: "Wed, Sep 16, 2026 · 2:30–4:30pm PDT", location: "555 Mission St #1800, San Francisco, CA 94105", title: "EchoYouth Company Visit Series: Cota Capital", desc: "An in-person visit to Cota Capital to meet the team and see how a venture capital firm works." }
+      { date: "Wed, Sep 16, 2026 · 2:30–4:30pm PDT", location: "555 Mission St #1800, San Francisco, CA 94105", title: "EchoYouth Company Visit Series: Cota Capital", desc: "An in-person visit to Cota Capital to meet the team and see how a venture capital firm works.", private: true }
     ],
     past: []
   },

@@ -215,6 +215,7 @@ body{ padding-top:64px; }
 .event-title{ font-size:19px; margin-bottom:8px; }
 .event-desc{ font-size:14.5px; max-width:480px; }
 .event-link{ font-size:13.5px; color:var(--accent); align-self:center; white-space:nowrap; }
+.event-private{ font-size:13.5px; color:var(--text-faint); align-self:center; white-space:nowrap; }
 
 .past-strip{ display:flex; gap:1px; background:var(--line); overflow-x:auto; margin-top:8px; }
 .past-card{ flex:0 0 240px; background:var(--bg); padding:26px 22px; }

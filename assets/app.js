@@ -55,9 +55,15 @@ const Render = {
   upcomingEvents(el) {
     if (!el) return;
     el.innerHTML = SITE_CONTENT.events.upcoming.map(e => {
-      const href = e.link || 'contact.html';
-      const external = /^https?:\/\//.test(href);
-      const attrs = external ? ' target="_blank" rel="noopener noreferrer"' : '';
+      let cta;
+      if (e.private) {
+        cta = `<span class="event-private">Private event</span>`;
+      } else {
+        const href = e.link || 'contact.html';
+        const external = /^https?:\/\//.test(href);
+        const attrs = external ? ' target="_blank" rel="noopener noreferrer"' : '';
+        cta = `<a class="event-link" href="${href}"${attrs}>Save your spot →</a>`;
+      }
       return `
       <div class="event-row">
         <div class="event-meta">${e.date}<br>${e.location}</div>
@@ -65,7 +71,7 @@ const Render = {
           <div class="event-title">${e.title}</div>
           <p class="event-desc">${e.desc}</p>
         </div>
-        <a class="event-link" href="${href}"${attrs}>Save your spot →</a>
+        ${cta}
       </div>`;
     }).join('');
   },
