@@ -15,7 +15,7 @@ window.SITE_CONTENT = {
     eyebrow: "EchoYouth",
     headline: "An echo of impact.",
     sub: "Build the next generation of builders.",
-    desc: "We give young builders the exposure, community, and opportunities to turn curiosity into action — and ideas into impact."
+    desc: "EchoYouth aims to inspire and equip middle and high school students with leadership, entrepreneurial, and business skills through hands-on learning experiences, mentorship, and community engagement."
   },
   about: {
     mission: "EchoYouth aims to inspire and equip middle and high school students with leadership, entrepreneurial, and business skills through hands-on learning experiences, mentorship, and community engagement.",
