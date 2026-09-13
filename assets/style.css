@@ -258,7 +258,28 @@ body{ padding-top:64px; }
 @media(max-width:600px){ .type-blurb{ max-width:220px; } }
 
 .mini-cal{ border:1px solid var(--line); padding:26px; margin-top:64px; }
-.cal-days .cell.evt{ cursor:default; }
+.cal-days .cell.evt{ position:relative; cursor:default; outline:none; }
+.cal-blurb{
+  position:absolute; left:50%; bottom:calc(100% + 10px);
+  transform:translateX(-50%) translateY(6px);
+  width:max-content; max-width:220px;
+  background:var(--text); color:#000;
+  font-size:12px; line-height:1.45; text-align:left;
+  font-weight:400; letter-spacing:normal;
+  padding:10px 12px; border-radius:8px;
+  box-shadow:0 10px 30px rgba(0,0,0,0.35);
+  opacity:0; visibility:hidden; pointer-events:none; z-index:40;
+  transition:opacity .2s ease, transform .2s ease;
+}
+.cal-blurb::after{
+  content:""; position:absolute; top:100%; left:50%;
+  transform:translateX(-50%);
+  border:6px solid transparent; border-top-color:var(--text);
+}
+.cell.evt:hover .cal-blurb,
+.cell.evt:focus-visible .cal-blurb{
+  opacity:1; visibility:visible; transform:translateX(-50%) translateY(0);
+}
 .mini-cal-head{ display:flex; justify-content:space-between; margin-bottom:20px; font-size:14px; color:var(--text-dim); }
 .cal-days{ display:grid; grid-template-columns:repeat(7,1fr); gap:4px; text-align:center; font-size:12.5px; }
 .cal-days .dow{ color:var(--text-faint); padding-bottom:10px; }
