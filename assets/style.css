@@ -217,13 +217,39 @@ body{ padding-top:64px; }
 .past-card h4{ font-size:15px; margin-bottom:8px; }
 .past-card p{ font-size:13px; }
 
-/* ---- event type chips ---- */
+/* ---- event type chips + hover blurb ---- */
 .type-chips{ display:flex; flex-wrap:wrap; gap:10px; }
 .type-chip{
+  position:relative;
   border:1px solid var(--line); border-radius:100px;
   padding:8px 16px; font-size:13.5px; color:var(--text-dim);
-  background:var(--bg-raised);
+  background:var(--bg-raised); cursor:default; outline:none;
+  transition:border-color .2s ease, color .2s ease;
 }
+.type-chip:hover, .type-chip:focus-visible{
+  border-color:var(--accent); color:var(--text);
+}
+.type-blurb{
+  position:absolute; left:50%; bottom:calc(100% + 12px);
+  transform:translateX(-50%) translateY(6px);
+  width:max-content; max-width:260px;
+  background:var(--text); color:#000;
+  font-size:12.5px; line-height:1.45; text-align:left;
+  padding:12px 14px; border-radius:8px;
+  box-shadow:0 10px 30px rgba(0,0,0,0.35);
+  opacity:0; visibility:hidden; pointer-events:none; z-index:40;
+  transition:opacity .2s ease, transform .2s ease;
+}
+.type-blurb::after{
+  content:""; position:absolute; top:100%; left:50%;
+  transform:translateX(-50%);
+  border:6px solid transparent; border-top-color:var(--text);
+}
+.type-chip:hover .type-blurb,
+.type-chip:focus-visible .type-blurb{
+  opacity:1; visibility:visible; transform:translateX(-50%) translateY(0);
+}
+@media(max-width:600px){ .type-blurb{ max-width:220px; } }
 
 .mini-cal{ border:1px solid var(--line); padding:26px; margin-top:64px; }
 .cal-days .cell.evt{ cursor:default; }

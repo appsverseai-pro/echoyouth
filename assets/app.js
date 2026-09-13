@@ -40,7 +40,11 @@ const Render = {
   eventTypes(el) {
     if (!el) return;
     el.innerHTML = SITE_CONTENT.events.types
-      .map(t => `<span class="type-chip">${t}</span>`)
+      .map(t => `
+        <span class="type-chip" tabindex="0">
+          ${t.label}
+          <span class="type-blurb" role="tooltip">${t.blurb}</span>
+        </span>`)
       .join('');
   },
   upcomingEvents(el) {

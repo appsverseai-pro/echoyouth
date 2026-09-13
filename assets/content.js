@@ -40,17 +40,18 @@ window.SITE_CONTENT = {
     { name: "Founder Name", role: "Co-Founder & Operations", bio: "Placeholder bio — a sentence on background and why they started EchoYouth.", initials: "FN" }
   ],
   events: {
-    // Short labels for the types of events EchoYouth runs (placeholders).
+    // Types of events EchoYouth runs (placeholders). Hover a chip on the
+    // events page to reveal its blurb.
     types: [
-      "Educational Content & Media",
-      "Startup Pitch Competitions",
-      "Investing & Market Simulations",
-      "Speaker Series & Webinars",
-      "Community Service Projects",
-      "Company Visits & Career Days",
-      "Entrepreneurship Workshops",
-      "Networking Events",
-      "Mentorship Program"
+      { label: "Educational Content & Media", blurb: "Students produce podcasts, interviews, and articles on entrepreneurship, AI, investing, and leadership." },
+      { label: "Startup Pitch Competitions", blurb: "Shark Tank–style contests where teams build business ideas and pitch to founders and investors." },
+      { label: "Investing & Market Simulations", blurb: "Virtual trading competitions, portfolio challenges, and financial literacy workshops." },
+      { label: "Speaker Series & Webinars", blurb: "Founders, investors, and executives share their journeys and expertise with students." },
+      { label: "Community Service Projects", blurb: "Fundraisers, brand-building, and creative media projects that develop real leadership." },
+      { label: "Company Visits & Career Days", blurb: "Visits to startups, VC firms, and tech companies, plus job shadowing and internships." },
+      { label: "Entrepreneurship Workshops", blurb: "Hands-on sessions in design thinking, business models, marketing, and financial modeling." },
+      { label: "Networking Events", blurb: "Mixers, founder roundtables, fireside chats, and career panels to build connections." },
+      { label: "Mentorship Program", blurb: "Structured mentorship pairing students with professionals, founders, and college mentors." }
     ],
     upcoming: [
       { date: "Sun, Sep 13, 2026 · 9:00–10:00am PDT", location: "Zoom (link TBD)", title: "Virtual Professional Interview Series: Vikram Venkat, Principal of Cota Capital", desc: "A live conversation with Vikram Venkat, Principal at Cota Capital, on venture capital and career paths." },
