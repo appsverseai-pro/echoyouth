@@ -37,6 +37,12 @@ const Render = {
         <p>${f.bio}</p>
       </div>`).join('');
   },
+  eventTypes(el) {
+    if (!el) return;
+    el.innerHTML = SITE_CONTENT.events.types
+      .map(t => `<span class="type-chip">${t}</span>`)
+      .join('');
+  },
   upcomingEvents(el) {
     if (!el) return;
     el.innerHTML = SITE_CONTENT.events.upcoming.map(e => `

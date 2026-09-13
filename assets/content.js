@@ -40,17 +40,23 @@ window.SITE_CONTENT = {
     { name: "Founder Name", role: "Co-Founder & Operations", bio: "Placeholder bio — a sentence on background and why they started EchoYouth.", initials: "FN" }
   ],
   events: {
-    upcoming: [
-      { date: "Sep 20, 2026", location: "Dublin, CA", title: "Fall Builder Kickoff", desc: "Meet the new cohort, tour the lab, and pitch your first project idea in five minutes flat." },
-      { date: "Oct 11, 2026", location: "Virtual", title: "Mentor Match Night", desc: "A speed-networking session pairing builders with mentors across engineering, design, and organizing." },
-      { date: "Nov 8, 2026", location: "Dublin, CA", title: "Demo Day: Fall Cohort", desc: "Twelve teams present what they built this fall. Open to families, partners, and future builders." }
+    // Short labels for the types of events EchoYouth runs (placeholders).
+    types: [
+      "Educational Content & Media",
+      "Startup Pitch Competitions",
+      "Investing & Market Simulations",
+      "Speaker Series & Webinars",
+      "Community Service Projects",
+      "Company Visits & Career Days",
+      "Entrepreneurship Workshops",
+      "Networking Events",
+      "Mentorship Program"
     ],
-    past: [
-      { date: "Jun 2026", title: "Summer Builder Lab", desc: "18 builders shipped 6 working prototypes in three weeks." },
-      { date: "Apr 2026", title: "Community Build Day", desc: "Builders and mentors partnered with a local nonprofit for a one-day sprint." },
-      { date: "Feb 2026", title: "Winter Demo Day", desc: "First public showcase — over 80 guests attended." },
-      { date: "Jan 2026", title: "EchoYouth Launch Night", desc: "Where it all started, with our founding cohort of 10 builders." }
-    ]
+    upcoming: [
+      { date: "Sun, Sep 13, 2026 · 9:00–10:00am PDT", location: "Zoom (link TBD)", title: "Virtual Professional Interview Series: Vikram Venkat, Principal of Cota Capital", desc: "A live conversation with Vikram Venkat, Principal at Cota Capital, on venture capital and career paths." },
+      { date: "Wed, Sep 16, 2026 · 2:30–4:30pm PDT", location: "555 Mission St #1800, San Francisco, CA 94105", title: "EchoYouth Company Visit Series: Cota Capital", desc: "An in-person visit to Cota Capital to meet the team and see how a venture capital firm works." }
+    ],
+    past: []
   },
   impact: {
     stats: [

@@ -217,7 +217,16 @@ body{ padding-top:64px; }
 .past-card h4{ font-size:15px; margin-bottom:8px; }
 .past-card p{ font-size:13px; }
 
+/* ---- event type chips ---- */
+.type-chips{ display:flex; flex-wrap:wrap; gap:10px; }
+.type-chip{
+  border:1px solid var(--line); border-radius:100px;
+  padding:8px 16px; font-size:13.5px; color:var(--text-dim);
+  background:var(--bg-raised);
+}
+
 .mini-cal{ border:1px solid var(--line); padding:26px; margin-top:64px; }
+.cal-days .cell.evt{ cursor:default; }
 .mini-cal-head{ display:flex; justify-content:space-between; margin-bottom:20px; font-size:14px; color:var(--text-dim); }
 .cal-days{ display:grid; grid-template-columns:repeat(7,1fr); gap:4px; text-align:center; font-size:12.5px; }
 .cal-days .dow{ color:var(--text-faint); padding-bottom:10px; }
