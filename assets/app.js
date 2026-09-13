@@ -49,15 +49,20 @@ const Render = {
   },
   upcomingEvents(el) {
     if (!el) return;
-    el.innerHTML = SITE_CONTENT.events.upcoming.map(e => `
+    el.innerHTML = SITE_CONTENT.events.upcoming.map(e => {
+      const href = e.link || 'contact.html';
+      const external = /^https?:\/\//.test(href);
+      const attrs = external ? ' target="_blank" rel="noopener noreferrer"' : '';
+      return `
       <div class="event-row">
         <div class="event-meta">${e.date}<br>${e.location}</div>
         <div>
           <div class="event-title">${e.title}</div>
           <p class="event-desc">${e.desc}</p>
         </div>
-        <a class="event-link" href="contact.html">Save your spot →</a>
-      </div>`).join('');
+        <a class="event-link" href="${href}"${attrs}>Save your spot →</a>
+      </div>`;
+    }).join('');
   },
   pastEvents(el) {
     if (!el) return;
