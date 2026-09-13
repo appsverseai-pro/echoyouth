@@ -29,14 +29,25 @@ const Render = {
   },
   founders(el) {
     if (!el) return;
-    const avatarIcon = `
-      <svg class="avatar-icon" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-        <circle cx="12" cy="8.5" r="3.75" fill="currentColor"/>
-        <path d="M4.5 20c0-4.14 3.36-7 7.5-7s7.5 2.86 7.5 7" fill="currentColor"/>
-      </svg>`;
+    const avatars = {
+      // Longer-hair silhouette
+      girl: `
+        <svg class="avatar-icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+          <path d="M12 2.4c-3.4 0-6 2.6-6 6 0 2 .3 4.6 1.2 6.5l1.9-.8c-.4-1-.6-2.1-.6-3.2V9.6a3.5 3.5 0 0 1 7 0v1.3c0 1.1-.2 2.2-.6 3.2l1.9.8c.9-1.9 1.2-4.5 1.2-6.5 0-3.4-2.6-6-6-6z"/>
+          <circle cx="12" cy="9.8" r="3.2"/>
+          <path d="M5.4 21c0-3.6 3-6.2 6.6-6.2s6.6 2.6 6.6 6.2z"/>
+        </svg>`,
+      // Short-hair silhouette
+      boy: `
+        <svg class="avatar-icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+          <path d="M12 2.4c-2.9 0-5.2 2.3-5.2 5.2 0 .5.1 1 .2 1.5.5-.9 1.4-1.5 2.4-1.5h5.2c1 0 1.9.6 2.4 1.5.1-.5.2-1 .2-1.5 0-2.9-2.3-5.2-5.2-5.2z"/>
+          <circle cx="12" cy="9.7" r="3.2"/>
+          <path d="M5.4 21c0-3.6 3-6.2 6.6-6.2s6.6 2.6 6.6 6.2z"/>
+        </svg>`
+    };
     el.innerHTML = SITE_CONTENT.founders.map(f => `
       <div class="founder">
-        <div class="avatar" role="img" aria-label="${f.name}">${avatarIcon}</div>
+        <div class="avatar" role="img" aria-label="${f.name}">${avatars[f.gender] || avatars.girl}</div>
         <h3>${f.name}</h3>
         <div class="role">${f.role}</div>
         <p>${f.bio}</p>

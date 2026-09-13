@@ -18,7 +18,7 @@ window.SITE_CONTENT = {
     desc: "We give young builders the exposure, community, and opportunities to turn curiosity into action — and ideas into impact."
   },
   about: {
-    mission: "To give young builders the exposure, community, and opportunities to turn curiosity into action and ideas into impact.",
+    mission: "EchoYouth aims to inspire and equip middle and high school students with leadership, entrepreneurial, and business skills through hands-on learning experiences, mentorship, and community engagement.",
     vision: "To create an echo of impact — where one generation of young builders inspires, empowers, and creates opportunities for the next.",
     pillars: [
       { title: "Exposure", body: "Real projects, real tools, real people working in the fields our builders are curious about." },
@@ -33,12 +33,12 @@ window.SITE_CONTENT = {
     { name: "Alumni-Led Chapters", desc: "Past participants return as near-peer leaders, running the next cohort in their own city." }
   ],
   founders: [
-    { name: "Kayla Chan", role: "9th Grade · University High School of San Francisco", bio: "Founded EchoYouth to help students turn their curiosity about business and technology into real projects and community.", initials: "KC" },
-    { name: "Aiden Shan", role: "9th Grade · Amador Valley High School", bio: "Wanted to build a space where young people learn entrepreneurship by doing, not just reading about it.", initials: "AS" },
-    { name: "Oliver Han", role: "10th Grade · Homestead High School", bio: "Co-founded EchoYouth to connect students with founders, investors, and hands-on opportunities early.", initials: "OH" },
-    { name: "Melody Chan", role: "7th Grade · William H. Crocker Middle School", bio: "Believes it is never too early to start building, and wants more middle schoolers to get involved.", initials: "MC" },
-    { name: "Joelle Chow", role: "9th Grade · Miramonte High School", bio: "Passionate about giving students a platform to share their ideas and grow as leaders.", initials: "JC" },
-    { name: "Ariel YoYo Chen", role: "9th Grade · San Mateo High School", bio: "Joined to help peers explore investing, innovation, and different career paths from an early age.", initials: "AC" }
+    { name: "Kayla Chan", gender: "girl", role: "9th Grade · University High School of San Francisco", bio: "Founded EchoYouth to help students turn their curiosity about business and technology into real projects and community.", initials: "KC" },
+    { name: "Aiden Shan", gender: "boy", role: "9th Grade · Amador Valley High School", bio: "Wanted to build a space where young people learn entrepreneurship by doing, not just reading about it.", initials: "AS" },
+    { name: "Oliver Han", gender: "boy", role: "10th Grade · Homestead High School", bio: "Co-founded EchoYouth to connect students with founders, investors, and hands-on opportunities early.", initials: "OH" },
+    { name: "Melody Chan", gender: "girl", role: "7th Grade · William H. Crocker Middle School", bio: "Believes it is never too early to start building, and wants more middle schoolers to get involved.", initials: "MC" },
+    { name: "Joelle Chow", gender: "girl", role: "9th Grade · Miramonte High School", bio: "Passionate about giving students a platform to share their ideas and grow as leaders.", initials: "JC" },
+    { name: "Ariel YoYo Chen", gender: "girl", role: "9th Grade · San Mateo High School", bio: "Joined to help peers explore investing, innovation, and different career paths from an early age.", initials: "AC" }
   ],
   events: {
     // Types of events EchoYouth runs (placeholders). Hover a chip on the
